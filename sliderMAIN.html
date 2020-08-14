@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<title>slider</title>
+	<!-- подключение стилей -->
+	<link rel="stylesheet" type="text/css" href="sim-slider-styles.css">
+</head>
+<body>
+	…
+	<div class="sim-slider">
+  <ul class="sim-slider-list">
+       <li><img src="screen.gif" alt="screen"></li>    <!-- это экран -->
+       <li class="sim-slider-element"><img src="/Pic/1.png" alt="1"></li>
+       <li class="sim-slider-element"><img src="/Pic/2.png" alt="2"></li>
+       <li class="sim-slider-element">
+
+				  <input type="range" min="1" max="3" value="1" class="slider" id="myRange"
+					 position: "absolute" top: "2%" margin-right: "-50%">
+				  <span id="value"></span>
+
+				  <img src="https://loremflickr.com/320/240/1" alt="" id="img">
+			</li>
+
+   </ul>
+   <div class="sim-slider-arrow-left"></div>
+   <div class="sim-slider-arrow-right"></div>
+   <div class="sim-slider-dots"></div>
+	</div>
+
+	<footer>
+	…
+	</footer>
+<!-- подключение слайдера -->
+<script src="sim-slider.js"></script>
+<!-- вызов слайдера -->
+<script>new Sim()</script>
+
+	<script>
+			var slider = document.getElementById("myRange");
+			var output = document.getElementById("value");
+
+			output.innerHTML = slider.value;
+
+			slider.oninput = function() {
+			output.innerHTML = this.value;
+
+			var img = document.getElementById("img");
+			img.setAttribute("src", "https://loremflickr.com/320/240/" + this.value);
+			}
+	</script>
+
+</body>
+</html>
